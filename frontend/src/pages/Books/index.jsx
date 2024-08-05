@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { getBooks } from '../../services/BookService';
 import Spinner from './../../components/Spinner';
-import { getBooks } from './../../services/BooksService';
 import BooksList from './BooksList';
 
 function Books() {

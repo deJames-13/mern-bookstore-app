@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Spinner from '../../components/Spinner';
-import { getBookById } from '../../services/BooksService';
+import { getBookById } from '../../services/BookService';
 import BackButton from './../../components/BackButton';
 import BooksForm from './BooksForm';
 

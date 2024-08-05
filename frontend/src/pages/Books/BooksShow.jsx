@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
-import { getBookById } from '../../services/BooksService';
+import { getBookById } from '../../services/BookService';
 import Spinner from './../../components/Spinner';
 
 function BooksShow() {
