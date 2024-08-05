@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import DefaultLayout from './layouts/DefaultLayout';
 
-import Books, { BooksCreate, BooksEdit, BooksShow } from './pages/Books';
+import Books, { BookCreate, BookEdit, BookShow } from './pages/Books';
 
 const router = createBrowserRouter([
   {
@@ -19,15 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/books/create',
-        element: <BooksCreate />,
+        element: <BookCreate />,
       },
       {
         path: '/books/:id',
-        element: <BooksShow />,
+        element: <BookShow />,
       },
       {
         path: '/books/:id/edit',
-        element: <BooksEdit />,
+        element: <BookEdit />,
       },
     ],
   },

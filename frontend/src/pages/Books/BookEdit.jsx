@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BackButton from '../../components/BackButton';
 import Spinner from '../../components/Spinner';
 import { getBookById } from '../../services/BookService';
-import BackButton from './../../components/BackButton';
-import BooksForm from './BooksForm';
+import BookForm from './BookForm';
 
-function BooksEdit() {
+function BookEdit() {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(true);
   const params = useParams();
@@ -24,9 +24,9 @@ function BooksEdit() {
         <BackButton />
       </div>
       <div className='divider'></div>
-      <BooksForm data={book} />
+      <BookForm data={book} />
     </div>
   );
 }
 
-export default BooksEdit;
+export default BookEdit;

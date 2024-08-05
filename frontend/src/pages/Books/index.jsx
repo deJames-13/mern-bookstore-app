@@ -31,14 +31,14 @@ function Books() {
               Create
             </Link>
           </div>
-          <BooksList books={books} />
+          <BooksList books={books} setBooks={setBooks} />
         </>
       )}
     </div>
   );
 }
 
-export { default as BooksCreate } from './BooksCreate';
-export { default as BooksEdit } from './BooksEdit';
-export { default as BooksShow } from './BooksShow';
+export { default as BookCreate } from './BookCreate';
+export { default as BookEdit } from './BookEdit';
+export { default as BookShow } from './BookShow';
 export default Books;

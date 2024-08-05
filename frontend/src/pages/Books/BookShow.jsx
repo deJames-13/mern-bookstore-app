@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
+import Spinner from '../../components/Spinner';
 import { getBookById } from '../../services/BookService';
-import Spinner from './../../components/Spinner';
 
-function BooksShow() {
+function BookShow() {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(true);
   const params = useParams();
@@ -42,4 +42,4 @@ function BooksShow() {
   );
 }
 
-export default BooksShow;
+export default BookShow;

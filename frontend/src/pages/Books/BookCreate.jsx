@@ -1,7 +1,7 @@
-import BackButton from './../../components/BackButton';
-import BooksForm from './BooksForm';
+import BackButton from '../../components/BackButton';
+import BookForm from './BookForm';
 
-function BooksCreate() {
+function BookCreate() {
   return (
     <>
       <div className='flex items-center justify-between'>
@@ -9,9 +9,9 @@ function BooksCreate() {
         <BackButton />
       </div>
       <div className='divider'></div>
-      <BooksForm />
+      <BookForm />
     </>
   );
 }
 
-export default BooksCreate;
+export default BookCreate;

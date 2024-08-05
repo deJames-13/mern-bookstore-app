@@ -5,7 +5,7 @@ const propTypes = {
   data: PropTypes.object,
 };
 
-function BooksForm({ data = {} }) {
+function BookForm({ data = {} }) {
   return (
     <div className='flex-wrap gap-4 form-control'>
       <FormInputFilled
@@ -49,6 +49,6 @@ function BooksForm({ data = {} }) {
   );
 }
 
-BooksForm.propTypes = propTypes;
+BookForm.propTypes = propTypes;
 
-export default BooksForm;
+export default BookForm;
