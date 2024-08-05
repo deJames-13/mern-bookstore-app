@@ -5,7 +5,7 @@ function DefaultLayout() {
     <div id='default-layout' className='h-screen'>
       <Header />
 
-      <div className='relative container mx-auto h-full border rounded-lg shadow-lg p-8 overflow-clip'>
+      <div className='container relative h-full p-8 mx-auto border border-gray-400 rounded-lg shadow-lg border-opacity-30 overflow-clip'>
         <Outlet />
       </div>
 

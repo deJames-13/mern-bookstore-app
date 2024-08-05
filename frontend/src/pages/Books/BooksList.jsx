@@ -26,7 +26,7 @@ function BooksList({ books = [], setBooks = () => {} }) {
           </thead>
           <tbody>
             {books.map((book, idx) => (
-              <tr key={idx} className='hover'>
+              <tr key={idx} className='transition-all ease-in hover'>
                 <td>{book._id}</td>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
@@ -34,11 +34,11 @@ function BooksList({ books = [], setBooks = () => {} }) {
                 <td>
                   <div className='flex flex-wrap items-center justify-end gap-2'>
                     <Link to={`/books/${book._id}`} className='btn btn-sm btn-primary'>
-                      <FaPen />
+                      <FaEye />
                       Show
                     </Link>
                     <Link to={`/books/${book._id}/edit`} className='btn btn-sm btn-secondary'>
-                      <FaEye />
+                      <FaPen />
                       Edit
                     </Link>
                     <BookDelete book={book} onDelete={() => handleBookDelete(book._id)} />
