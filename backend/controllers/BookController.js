@@ -43,12 +43,11 @@ export default class BookController extends Controller {
   async update(req, res) {
     if (!req.body) return res.status(400).json({ error: 'No data provided' });
     try {
-      const book = await Book.findById(req.params.id);
+      const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+      });
       if (!book) return res.status(404).json({ error: 'Book not found' });
-
-      book.set(req.body);
-      await book.validate();
-      await book.save();
 
       res.status(200).json(book);
     } catch (error) {}
