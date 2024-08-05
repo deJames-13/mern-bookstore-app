@@ -1,14 +1,29 @@
 import express from 'express';
-import { PORT } from './config.js';
+import mongoose from 'mongoose';
+import { MONGO_URI, PORT } from './config.js';
+import router from './routes/api.js';
 
 const app = express();
 
-// ROUTEs
-app.get('/', (req, res) => {
-  res.send('Bookstore API!');
-});
+app.use(express.json());
+app.use('/', router);
 
-// START SERVER
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+const run = async () => {
+  try {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log('Connected to database');
+    run(); // Run the server
+  })
+  .catch((e) => {
+    console.log('Error connecting to database: ', e);
+  });
