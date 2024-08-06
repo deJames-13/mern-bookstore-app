@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import { propTypes } from './config';
 import FloatingInput from './FloatingInput';
 import Input from './Input';
@@ -8,7 +9,6 @@ function InputError({ error }) {
 
 export function FormInput(props) {
   let template = null;
-  const { error } = props;
 
   switch (props.type) {
     case 'floating-text':
@@ -18,16 +18,11 @@ export function FormInput(props) {
       template = <Input {...props} />;
   }
 
-  return (
-    <div className='form-control'>
-      {template}
-      {error && <InputError error={error} />}
-    </div>
-  );
+  return <div className='form-control'>{template}</div>;
 }
 
 InputError.propTypes = {
-  error: propTypes.error,
+  error: PropTypes.string,
 };
 FormInput.propTypes = propTypes;
 

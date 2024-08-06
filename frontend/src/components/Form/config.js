@@ -7,7 +7,8 @@ export const propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  pattern: PropTypes.string,
+  required: PropTypes.bool,
   onChange: PropTypes.func,
-  error: PropTypes.string,
   refer: PropTypes.object,
 };

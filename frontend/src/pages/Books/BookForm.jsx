@@ -10,16 +10,34 @@ const propTypes = {
 
 function makeFields(data) {
   const fields = [
-    { type: 'floating-text', name: 'title', id: 'title', label: 'Book Title', value: data.title ?? '' },
-    { type: 'floating-text', name: 'author', id: 'author', label: 'Book Author', value: data.author ?? '' },
-    { type: 'floating-text', name: 'publishedYear', id: 'publishedYear', label: 'Publish Year', value: `${data.publishedYear ?? ''}` },
+    {
+      type: 'floating-text',
+      name: 'title',
+      id: 'title',
+      label: 'Book Title',
+      defaultValue: data.title ?? '',
+    },
+    {
+      type: 'floating-text',
+      name: 'author',
+      id: 'author',
+      label: 'Book Author',
+      defaultValue: data.author ?? '',
+    },
+    {
+      type: 'floating-text',
+      name: 'publishedYear',
+      id: 'publishedYear',
+      label: 'Publish Year',
+      defaultValue: `${data.publishedYear ?? ''}`,
+    },
   ];
 
   const optional = data._id
     ? [
-        { disabled: true, type: 'floating-text', name: 'id', id: 'bookId', label: 'Book ID', value: `${data._id ?? ''}` },
-        { disabled: true, type: 'floating-text', name: 'createdAt', id: 'createdAt', label: 'Created At', value: `${data.cratedAt ?? ''}` },
-        { disabled: true, type: 'floating-text', name: 'updatedAt', id: 'updatedAt', label: 'Updated At', value: `${data.updatedAt ?? ''}` },
+        { disabled: true, type: 'floating-text', name: 'id', id: 'bookId', label: 'Book ID', defaultValue: `${data._id ?? ''}` },
+        { disabled: true, type: 'floating-text', name: 'createdAt', id: 'createdAt', label: 'Created At', defaultValue: `${data.createdAt ?? ''}` },
+        { disabled: true, type: 'floating-text', name: 'updatedAt', id: 'updatedAt', label: 'Updated At', defaultValue: `${data.updatedAt ?? ''}` },
       ]
     : [];
 
@@ -28,7 +46,8 @@ function makeFields(data) {
 }
 
 function BookForm({ data = {}, onSubmit = () => {} }) {
-  const refs = makeRefs(makeFields(data));
+  const fields = makeFields(data);
+  const refs = makeRefs(fields);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +63,7 @@ function BookForm({ data = {}, onSubmit = () => {} }) {
 
   return (
     <form onSubmit={handleSubmit} className='flex-wrap gap-4 form-control'>
-      {makeFields(data).map((field, idx) => (
+      {fields.map((field, idx) => (
         <FormInput refer={refs[field['name']]} key={idx} {...field} onChange={handleChange} />
       ))}
       <div className='divider'></div>

@@ -1,7 +1,7 @@
 import axiosClient from '../axios-client';
 
 export const getBooks = async (callback = () => {}) => {
-  axiosClient
+  return axiosClient
     .get('/books')
     .then((response) => {
       const books = response.data || [];
@@ -13,7 +13,7 @@ export const getBooks = async (callback = () => {}) => {
 };
 
 export const getBookById = async (id, callback = () => {}) => {
-  axiosClient
+  return axiosClient
     .get(`/books/${id}`)
     .then((response) => {
       const book = response.data || {};
@@ -25,7 +25,7 @@ export const getBookById = async (id, callback = () => {}) => {
 };
 
 export const createBook = async (data, callback = () => {}) => {
-  axiosClient
+  return axiosClient
     .post('/books', data)
     .then((response) => {
       const book = response.data || {};
@@ -37,7 +37,7 @@ export const createBook = async (data, callback = () => {}) => {
 };
 
 export const updateBook = async (id, data, callback = () => {}) => {
-  axiosClient
+  return axiosClient
     .put(`/books/${id}`, data)
     .then((response) => {
       const book = response.data || {};
@@ -49,7 +49,7 @@ export const updateBook = async (id, data, callback = () => {}) => {
 };
 
 export const deleteBook = async (id, callback = () => {}) => {
-  axiosClient
+  return axiosClient
     .delete(`/books/${id}`)
     .then((response) => {
       const book = response.data || {};
