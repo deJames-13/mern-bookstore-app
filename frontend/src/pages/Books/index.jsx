@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getBooks } from '../../actions/bookActions.js';
 import BooksCard from '../../components/Books/BooksCard.jsx';
+import BooksList from '../../components/Books/BooksList.jsx';
 import Spinner from './../../components/Spinner';
 
 function Books() {
-  // eslint-disable-next-line no-unused-vars
+  const activeButton = useSelector((state) => state.bookViewer.activeButton);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +34,7 @@ function Books() {
             </Link>
           </div>
           <div className='divider'></div>
-          <BooksCard books={books} setBooks={setBooks} />
+          {activeButton === 'list' ? <BooksList books={books} setBooks={setBooks} /> : <BooksCard books={books} setBooks={setBooks} />}
         </>
       )}
     </div>

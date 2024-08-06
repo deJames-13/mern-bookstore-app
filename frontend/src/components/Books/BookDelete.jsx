@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 import { deleteBook } from '../../actions/bookActions.js';
 
 const propTypes = {
@@ -9,6 +10,21 @@ const propTypes = {
 };
 
 function BookDelete({ book = {}, onDelete, noIcon = false }) {
+  const confirmDelete = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `You want to delete ${book.title}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleClick();
+      }
+    });
+  };
+
   const handleClick = () => {
     deleteBook(book._id, (data) => {
       console.log(data);
@@ -17,7 +33,7 @@ function BookDelete({ book = {}, onDelete, noIcon = false }) {
   };
   return (
     <>
-      <button onClick={handleClick} className='btn btn-sm btn-error'>
+      <button onClick={confirmDelete} className='btn btn-sm btn-error'>
         <FaTrash />
         {noIcon ? '' : 'Delete'}
       </button>

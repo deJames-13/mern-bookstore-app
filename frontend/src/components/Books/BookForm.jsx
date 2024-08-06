@@ -67,9 +67,15 @@ function BookForm({ data = {}, onSubmit = () => {} }) {
         <FormInput refer={refs[field['name']]} key={idx} {...field} onChange={handleChange} />
       ))}
       <div className='divider'></div>
-      <button type='submit' className='btn btn-primary'>
-        Save
-      </button>
+      <div className='flex flex-wrap items-center gap-4'>
+        <div className='flex-grow'></div>
+        <button type='submit' className='btn btn-primary'>
+          Save
+        </button>
+        <button type='reset' className='btn btn-secondary'>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }
