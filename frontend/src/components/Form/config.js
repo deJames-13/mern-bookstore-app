@@ -9,4 +9,5 @@ export const propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   error: PropTypes.string,
+  refer: PropTypes.object,
 };

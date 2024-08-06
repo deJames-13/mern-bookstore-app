@@ -4,11 +4,12 @@ function FloatingInput(props) {
   return (
     <div className='relative border border-gray-500 rounded-lg overflow-clip'>
       <input
+        ref={props.refer}
         onChange={props.onChange}
         type='text'
         id={props.id ?? 'floating__filled'}
         name={props.name}
-        value={props.value ?? ''}
+        defaultValue={props.value ?? ''}
         className='block shadow-xl px-2.5 pb-2.5 pt-5 w-full text-sm bg-base-200 border-0 border-gray-300 appearance-none  focus:border-b-2 focus:outline-none focus:ring-0 focus:border-primary/80 peer'
         placeholder=' '
         autoComplete='off'
