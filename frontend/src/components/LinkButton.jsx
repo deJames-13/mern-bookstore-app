@@ -9,10 +9,7 @@ const propTypes = {
 function LinkButton({ onClick, className, children }) {
   return (
     <>
-      <a
-        onClick={onClick}
-        className={`active:scale-95 hover:scale-105 hover:text-primary hover:z-10 transition-all ease-in-out ${className}`}
-      >
+      <a onClick={onClick} className={`active:scale-95 hover:scale-105 hover:text-primary hover:z-10 transition-all ease-in-out ${className}`}>
         {children}
       </a>
     </>

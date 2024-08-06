@@ -28,8 +28,7 @@ function BookShow() {
           <span className='font-semibold'>Author:</span> {book.author}
         </p>
         <p className='text-gray-600 dark:text-gray-400'>
-          <span className='font-semibold'>Published In:</span>{' '}
-          {book.publishedYear}
+          <span className='font-semibold'>Published In:</span> {book.publishedYear}
         </p>
         <p className='text-gray-600 dark:text-gray-400'>
           <span className='font-semibold'>Created At:</span> {book.createdAt}

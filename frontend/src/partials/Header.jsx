@@ -5,15 +5,13 @@ import LinkButton from '../components/LinkButton';
 function Header() {
   return (
     <header>
-      <div className='w-full flex flex-col items-center justify-center p-8'>
-        <h1 className='font-extrabold text-4xl text-center text-primary'>
-          Books
-        </h1>
+      <div className='flex flex-col items-center justify-center w-full p-8'>
+        <h1 className='text-4xl font-extrabold text-center text-primary'>Books</h1>
         <div className='flex'>
           <LinkButton>
             <IoListSharp />
           </LinkButton>
-          <div className='divider divider-horizontal m-0'></div>
+          <div className='m-0 divider divider-horizontal'></div>
           <LinkButton>
             <HiMiniSquares2X2 />
           </LinkButton>
