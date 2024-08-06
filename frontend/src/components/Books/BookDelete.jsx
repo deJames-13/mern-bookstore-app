@@ -1,13 +1,14 @@
 import { PropTypes } from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
-import { deleteBook } from '../../services/BookService';
+import { deleteBook } from '../../actions/bookActions.js';
 
 const propTypes = {
   book: PropTypes.object,
   onDelete: PropTypes.func,
+  noIcon: PropTypes.bool,
 };
 
-function BookDelete({ book = {}, onDelete }) {
+function BookDelete({ book = {}, onDelete, noIcon = false }) {
   const handleClick = () => {
     deleteBook(book._id, (data) => {
       console.log(data);
@@ -18,7 +19,7 @@ function BookDelete({ book = {}, onDelete }) {
     <>
       <button onClick={handleClick} className='btn btn-sm btn-error'>
         <FaTrash />
-        Delete
+        {noIcon ? '' : 'Delete'}
       </button>
     </>
   );

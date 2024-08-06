@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import FormInput from '../../components/Form';
 import { makeRefs } from './../../utils/form-utils';
+import { FormInput } from './../Form/index';
 
 const propTypes = {
   data: PropTypes.object,

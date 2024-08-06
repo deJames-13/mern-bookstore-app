@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getBookById, updateBook } from '../../actions/bookActions';
 import BackButton from '../../components/BackButton';
+import BookForm from '../../components/Books/BookForm';
 import Spinner from '../../components/Spinner';
-import { getBookById, updateBook } from '../../services/BookService';
-import BookForm from './BookForm';
 
 function BookEdit() {
   const [book, setBook] = useState({});
@@ -11,17 +11,17 @@ function BookEdit() {
   const params = useParams();
 
   const handleSubmit = (data) => {
+    setLoading(true);
     updateBook(book._id, data, (data) => {
       console.log('Book updated: ', data);
       data._id && setBook(data);
-    });
+    }).then(() => setLoading(false));
   };
 
   useEffect(() => {
     getBookById(params.id, (data) => {
       setBook(data);
-      setLoading(false);
-    });
+    }).then(() => setLoading(false));
   }, [params.id]);
   return loading ? (
     <Spinner />

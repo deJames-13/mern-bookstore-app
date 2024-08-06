@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
 import Spinner from '../../components/Spinner';
-import { getBookById } from '../../services/BookService';
+import { getBookById } from '../../actions/bookActions.js';
 
 function BookShow() {
   const [book, setBook] = useState({});

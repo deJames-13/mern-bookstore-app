@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { getBooks } from '../../services/BookService';
+import { getBooks } from '../../actions/bookActions.js';
+import BooksCard from '../../components/Books/BooksCard.jsx';
 import Spinner from './../../components/Spinner';
-import BooksList from './BooksList';
 
 function Books() {
   // eslint-disable-next-line no-unused-vars
@@ -31,7 +31,8 @@ function Books() {
               Create
             </Link>
           </div>
-          <BooksList books={books} setBooks={setBooks} />
+          <div className='divider'></div>
+          <BooksCard books={books} setBooks={setBooks} />
         </>
       )}
     </div>
