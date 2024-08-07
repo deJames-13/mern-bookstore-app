@@ -29,12 +29,13 @@ const run = async () => {
   }
 };
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log('Connected to database');
-    run(); // Run the server
-  })
-  .catch((e) => {
-    console.log('Error connecting to database: ', e);
-  });
+MONGO_URI &&
+  mongoose
+    .connect(MONGO_URI)
+    .then(() => {
+      console.log('Connected to database');
+      run(); // Run the server
+    })
+    .catch((e) => {
+      console.log('Error connecting to database: ', e);
+    });
