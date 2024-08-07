@@ -19,7 +19,6 @@ function Books() {
       setLoading(false);
     });
   }, []);
-
   return (
     <div className='h-full'>
       {loading ? (

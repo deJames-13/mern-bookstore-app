@@ -6,7 +6,6 @@ const bookViewerSlice = createSlice({
   initialState,
   reducers: {
     setBookViewer: (state, action) => {
-      console.log(action);
       state.activeButton = action.payload;
     },
   },
