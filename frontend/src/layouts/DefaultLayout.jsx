@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './../partials/Header';
+
 function DefaultLayout() {
   const [activeButton, setActiveButton] = useState('list');
   return (
