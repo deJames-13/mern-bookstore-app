@@ -4,7 +4,7 @@ import Header from './../partials/Header';
 function DefaultLayout() {
   const [activeButton, setActiveButton] = useState('list');
   return (
-    <div id='default-layout' className='h-screen'>
+    <div id='default-layout' className='min-h-screen'>
       <Header activeButton={activeButton} setActiveButton={setActiveButton} />
 
       <div className='container relative p-8 mx-auto border border-gray-400 rounded-lg shadow-lg border-opacity-30 overflow-clip'>
